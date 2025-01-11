@@ -28,7 +28,7 @@ const HeroSection = ({ email, setEmail, handleSubmit }) => (
                 type="submit"
                 className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:opacity-90 transition flex items-center gap-2 shadow-lg hover:shadow-xl"
               >
-                Start Free <ArrowRight className="w-4 h-4 animate-bounce-x" />
+                Start Free <ArrowRight className="w-4 h-4 animate-pulse" />
               </button>
             </form>
           </div>
