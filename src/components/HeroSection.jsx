@@ -1,7 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import PropTypes from 'prop-types';
 
-
 export default function HeroSection({ darkMode, email, setEmail, handleSubmit }) {
   return (
     <section className="pt-32 pb-20 px-4 relative overflow-hidden">

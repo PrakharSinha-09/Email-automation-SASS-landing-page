@@ -1,5 +1,6 @@
 import { Mail } from "lucide-react";
 import PropTypes from "prop-types";
+
 const Footer = ({darkMode}) => {
   const footerColumns = [
     {

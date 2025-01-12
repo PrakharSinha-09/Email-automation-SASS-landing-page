@@ -1,5 +1,6 @@
 import { Mail, Sun, Moon } from 'lucide-react';
 import PropTypes from 'prop-types';
+
 export default function Navbar({ darkMode, setDarkMode, scrolled, scrollToSection }) {
   return (
     <div className={`fixed w-full z-50 flex justify-center transition-all duration-500 ${scrolled ? 'py-2' : 'py-4'}`}>

@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import PropTypes from 'prop-types'
+
 const PricingSection = ({ darkMode }) => (
   <section id="pricing" className="py-20 px-4 relative">
     <div className={`${darkMode ? 'bg-gradient-to-b from-blue-900 to-purple-900' : 'bg-gradient-to-b from-purple-50 to-blue-50'} absolute inset-0 opacity-50`}></div>

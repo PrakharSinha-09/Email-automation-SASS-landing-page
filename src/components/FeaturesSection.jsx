@@ -1,5 +1,6 @@
 import { Zap, Clock, BarChart } from 'lucide-react';
 import PropTypes from 'prop-types';
+
 const FeaturesSection = ({ darkMode }) => (
   <section id="features" className={`py-20 px-4 ${darkMode ? 'bg-gray-800/50' : 'bg-white/50'} backdrop-blur-sm`}>
   <div className="max-w-7xl mx-auto">

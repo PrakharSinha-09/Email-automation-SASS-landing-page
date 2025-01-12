@@ -6,9 +6,8 @@ export default function TrustedCompanies({ darkMode }) {
       { src: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg", alt: "Microsoft" },
       { src: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png", alt: "Tesla" },
       { src: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg", alt: "IBM" },
-      
     ];
-  
+    
     return (
       <section className={`py-16 overflow-hidden ${darkMode ? 'bg-gray-800/30' : 'bg-gray-50/50'}`}>
         <div className="max-w-7xl mx-auto px-4">
