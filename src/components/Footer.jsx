@@ -1,5 +1,6 @@
 import { Mail } from "lucide-react";
-const Footer = () => {
+import PropTypes from "prop-types";
+const Footer = ({darkMode}) => {
   const footerColumns = [
     {
       title: "Product",
@@ -16,7 +17,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-r from-gray-900 to-blue-900 text-white py-12">
+    <footer className={`${darkMode 
+      ? 'bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400' 
+      : 'bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600'} 
+    bg-clip-text text-transparent py-12`} >
       <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
         <div>
           <div className="flex items-center mb-4">
@@ -34,8 +38,7 @@ const Footer = () => {
             <ul className="space-y-2">
               {column.links.map((link, i) => (
                 <li key={i}>
-                  <a href="#" className="text-gray-400 hover:text-white transition">
-                    {link}
+                  <a href="#" className={`${darkMode ? 'text-white' : 'text-gray-600'} hover:text-blue-500`}>                    {link}
                   </a>
                 </li>
               ))}
@@ -45,6 +48,10 @@ const Footer = () => {
       </div>
     </footer>
   );
+};
+
+Footer.propTypes = {
+  darkMode: PropTypes.bool.isRequired,
 };
 
 export default Footer;
