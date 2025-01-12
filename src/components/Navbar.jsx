@@ -1,7 +1,10 @@
-import { Mail, Sun, Moon } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, Sun, Moon, Menu, X } from 'lucide-react';
 import PropTypes from 'prop-types';
 
 export default function Navbar({ darkMode, setDarkMode, scrolled, scrollToSection }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className={`fixed w-full z-50 flex justify-center transition-all duration-500 ${scrolled ? 'py-2' : 'py-4'}`}>
       <nav className={`
@@ -40,6 +43,93 @@ export default function Navbar({ darkMode, setDarkMode, scrolled, scrollToSectio
                 Get Started
               </button>
             </div>
+            
+            <div className="md:hidden">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className={`p-2 rounded-lg transition-colors
+                    ${darkMode 
+                      ? 'text-gray-200 hover:bg-gray-700' 
+                      : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                >
+                  {isMenuOpen ? (
+                    <X className="h-6 w-6" />
+                  ) : (
+                    <Menu className="h-6 w-6" />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <div className={`
+              md:hidden absolute left-0 right-0 top-full mt-2 px-4 pt-2 pb-4 space-y-3
+              ${scrolled ? 'rounded-2xl' : ''}
+              ${darkMode 
+                ? 'bg-gray-800 border border-gray-700' 
+                : 'bg-white border border-gray-200'
+              }
+              transition-all duration-200 transform
+              ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}
+            `}>
+              <div className="flex items-center justify-center space-x-4 py-2">
+                <button
+                  onClick={() => setDarkMode(!darkMode)}
+                  className={`p-2 rounded-lg transition-colors flex items-center gap-2
+                    ${darkMode 
+                      ? 'hover:bg-gray-700 text-yellow-400' 
+                      : 'hover:bg-gray-100 text-gray-600'
+                    }`}
+                >
+                  {darkMode ? (
+                    <>
+                      <Sun className="w-5 h-5" />
+                      <span>Light Mode</span>
+                    </>
+                  ) : (
+                    <>
+                      <Moon className="w-5 h-5" />
+                      <span>Dark Mode</span>
+                    </>
+                  )}
+                </button>
+              </div>
+              
+              <div className="flex flex-col space-y-3">
+                <button
+                  onClick={() => {
+                    scrollToSection('features');
+                    setIsMenuOpen(false);
+                  }}
+                  className={`px-4 py-2 rounded-lg transition-colors text-left
+                    ${darkMode 
+                      ? 'text-gray-200 hover:bg-gray-700' 
+                      : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                >
+                  Features
+                </button>
+                <button
+                  onClick={() => {
+                    scrollToSection('pricing');
+                    setIsMenuOpen(false);
+                  }}
+                  className={`px-4 py-2 rounded-lg transition-colors text-left
+                    ${darkMode 
+                      ? 'text-gray-200 hover:bg-gray-700' 
+                      : 'text-gray-600 hover:bg-gray-100'
+                    }`}
+                >
+                  Pricing
+                </button>
+                <button className={`px-4 py-2 rounded-lg transition-all duration-300
+                  ${darkMode 
+                    ? 'bg-blue-500 hover:bg-blue-600 text-white' 
+                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                  }`}>
+                  Get Started
+                </button>
+              </div>
           </div>
         </div>
       </nav>
